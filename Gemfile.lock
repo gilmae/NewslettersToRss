@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    mini_mime (1.0.2)
+    rexml (3.2.4)
+    rss (0.2.9)
+      rexml
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mail (~> 2.7)
+  rss (~> 0.2.9)
+
+BUNDLED WITH
+   2.1.2
