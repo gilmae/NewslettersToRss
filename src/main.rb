@@ -8,7 +8,8 @@ imap = Net::IMAP.new(ENV["IMAP_SERVER"], 993, true)
 imap.login(ENV["IMAP_UID"], ENV["IMAP_PWD"])
 imap.select(ENV["IMAP_FOLDER"])
 ids = imap.search("RECENT")
-(ids = imap.search(["SENTSINCE", (Time.now-7*60*60*24).strftime("%d-%b-%Y")])) if (ids.nil? || ids.size == 0)
+ids += imap.search(["SENTSINCE", (Time.now-7*60*60*24).strftime("%d-%b-%Y")])
+ids.uniq!
 
 rss = RSS::Maker.make('rss2.0') do |maker|
     maker.channel.title = "Newsletters"
